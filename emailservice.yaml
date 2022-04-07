@@ -29,7 +29,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: emailservice
+        image: gcr.io/indigo-history-337312/email:1
         ports:
         - containerPort: 8080
         env:
@@ -60,7 +60,7 @@ kind: Service
 metadata:
   name: emailservice
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: emailservice
   ports:
